@@ -79,9 +79,7 @@ describe('users model', function() {
 
              usersDb = await UsersDb.findById(3)
             expect(usersDb).toEqual({id:3,username:'test1', password:'pass1',department:'advertising', employed:'false'});
-        //     expect(UsersDb.username).toBe("test1");
-        //   expect(UsersDb.password).toBe("pass1");
-        })
+                })
 
     })
     
