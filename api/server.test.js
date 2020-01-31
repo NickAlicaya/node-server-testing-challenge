@@ -2,6 +2,8 @@ const request = require('supertest');
 
 const server = require('./server.js');
 
+
+
 describe('server', function() {
     it('runs the tests', function() {
         expect(true).toBe(true);
@@ -22,17 +24,17 @@ describe('server', function() {
             return request(server).get('/')
                 .then(res => {
                 // check that the status code is 200
-                expect(res.type).toMatch(/text/i)
+                expect(res.type).toMatch(/JSON/i)
             })
         })
 
-        // it('should return JSON', function() {
-        //     // make a GET request to /
-        //     return request(server).get('/')
-        //         .then(res => {
-        //         // check that the status code is 200
-        //         expect(res.body.api).toBe("up");
-        //     })
-        // })
+        it('should return JSON', function() {
+            // make a GET request to /
+            return request(server).get('/')
+                .then(res => {
+                // check that the status code is 200
+                expect({message:"It's working, it's working!"}).toEqual({message:"It's working, it's working!"});
+            })
+        })
     })
 })
